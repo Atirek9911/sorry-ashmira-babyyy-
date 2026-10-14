@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff477e">
+  <title>For Ashmira 💗</title>
+  <style>
+    :root { color-scheme: dark; --pink:#ff4f91; --red:#ff3158; --glass:rgba(255,255,255,.13); }
+    * { box-sizing: border-box; }
+    html, body { margin:0; min-height:100%; }
+    body {
+      min-height:100vh; min-height:100svh; overflow:hidden; display:grid; place-items:center;
+      font-family: ui-rounded, "Segoe UI", system-ui, -apple-system, sans-serif; color:white;
+      background: radial-gradient(ellipse at 15% 15%, rgba(255,173,205,.62), transparent 42%),
+                  radial-gradient(ellipse at 85% 80%, rgba(255,70,91,.55), transparent 38%),
+                  linear-gradient(135deg,#ff8ab8 0%,#ff557f 44%,#d92d59 100%);
+      position:relative; isolation:isolate;
+    }
+    body::before, body::after { content:""; position:fixed; z-index:-1; border-radius:50%; filter:blur(3px); opacity:.32; animation:orb 12s ease-in-out infinite alternate; }
+    body::before { width:48vmax;height:48vmax;left:-22vmax;bottom:-25vmax;background:#ffd1e3; }
+    body::after { width:42vmax;height:42vmax;right:-18vmax;top:-22vmax;background:#ff173f;animation-delay:-4s; }
+    @keyframes orb { to { transform:translate(7vw,-5vh) scale(1.12); } }
+    .hearts, .confetti { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:-0; }
+    .float-heart { position:absolute; bottom:-12vh; color:rgba(255,255,255,.45); text-shadow:0 0 18px rgba(255,255,255,.5); animation:floatUp linear infinite; user-select:none; }
+    @keyframes floatUp { from { transform:translateY(0) rotate(0deg); opacity:0; } 12%{opacity:.8;} to { transform:translateY(-125vh) rotate(35deg); opacity:0; } }
+    .card {
+      width:min(92vw, 560px); padding:clamp(28px,6vw,54px) clamp(22px,6vw,48px);
+      border:1px solid rgba(255,255,255,.36); border-radius:30px;
+      background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.075));
+      box-shadow:0 24px 70px rgba(103,0,36,.22), inset 0 1px 0 rgba(255,255,255,.3);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      text-align:center; position:relative; z-index:2; animation:appear .9s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes appear { from { opacity:0; transform:translateY(24px) scale(.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .top-heart { font-size:clamp(42px,9vw,64px); display:inline-block; filter:drop-shadow(0 0 16px rgba(255,255,255,.45)); animation:heartbeat 1.6s ease-in-out infinite; }
+    @keyframes heartbeat { 0%,100%{transform:scale(1)} 12%{transform:scale(1.13)} 24%{transform:scale(1)} 36%{transform:scale(1.08)} }
+    .eyebrow { margin:10px 0 12px; text-transform:uppercase; letter-spacing:.2em; font-size:.73rem; font-weight:800; color:rgba(255,255,255,.83); }
+    h1 { font-size:clamp(2rem,7vw,3.35rem); line-height:1.08; letter-spacing:-.045em; margin:0 auto 18px; text-shadow:0 3px 20px rgba(127,0,44,.18); }
+    h1 .name { color:#fff2a8; text-shadow:0 0 22px rgba(255,244,174,.38); }
+    .message { max-width:390px; margin:0 auto; line-height:1.7; font-size:clamp(.96rem,3vw,1.08rem); color:rgba(255,255,255,.91); }
+    .buttons { display:flex; align-items:center; justify-content:center; gap:16px; margin:30px auto 0; min-height:58px; position:relative; }
+    button { font:inherit; font-weight:800; font-size:1rem; border:0; border-radius:999px; padding:15px 29px; min-width:124px; cursor:pointer; touch-action:manipulation; transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
+    button:focus-visible { outline:3px solid white; outline-offset:4px; }
+    .yes { color:#c31d52; background:linear-gradient(135deg,#fff9fc,#ffe2ee); box-shadow:0 8px 24px rgba(124,0,44,.22), inset 0 1px 0 white; }
+    .yes:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 13px 30px rgba(124,0,44,.28); }
+    .no { color:white; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.52); box-shadow:inset 0 1px 0 rgba(255,255,255,.2); }
+    .no:hover { background:rgba(255,255,255,.22); }
+    .hint { min-height:1.4em; margin:16px 0 0; font-size:.82rem; color:rgba(255,255,255,.78); }
+    .signature { margin-top:20px; font-size:.8rem; color:rgba(255,255,255,.73); }
+    .celebration { position:fixed; inset:0; z-index:10; display:grid; place-items:center; padding:22px; text-align:center; background:radial-gradient(circle at 50% 40%,rgba(255,143,188,.96),rgba(229,34,83,.98) 70%); opacity:0; visibility:hidden; transition:opacity .5s ease,visibility .5s; overflow:hidden; }
+    .celebration.show { opacity:1; visibility:visible; }
+    .celebrate-content { position:relative; z-index:2; max-width:650px; animation:celebrateIn .8s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes celebrateIn { from{transform:scale(.7) translateY(20px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+    .big-heart { font-size:clamp(76px,18vw,130px); filter:drop-shadow(0 0 28px rgba(255,255,255,.5)); animation:heartbeat 1.2s infinite; }
+    .celebration h2 { margin:8px 0 16px; font-size:clamp(2.5rem,10vw,5.7rem); letter-spacing:-.06em; line-height:1; text-shadow:0 5px 25px rgba(120,0,35,.22); }
+    .celebration p { font-size:clamp(1rem,3.7vw,1.3rem); line-height:1.65; margin:0 auto 26px; max-width:520px; }
+    .again { color:#d52259; background:white; box-shadow:0 10px 30px rgba(110,0,30,.22); }
+    .rain-heart { position:absolute; top:-12vh; animation:rain linear forwards; opacity:.9; filter:drop-shadow(0 0 8px rgba(255,255,255,.4)); }
+    @keyframes rain { to { transform:translate3d(var(--drift),115vh,0) rotate(500deg); opacity:.1; } }
+    .sparkle { position:absolute; width:5px;height:5px;border-radius:50%;background:#fff9cf;box-shadow:0 0 15px 4px rgba(255,255,255,.65); animation:twinkle 1.8s ease-in-out infinite alternate; }
+    @keyframes twinkle { from{opacity:.15;transform:scale(.5)} to{opacity:1;transform:scale(1.4)} }
+    @media(max-width:420px) { .card{border-radius:25px;padding:30px 20px}.buttons{gap:10px}button{min-width:112px;padding:14px 22px}.message{line-height:1.6} }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important} }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="floatingHearts" aria-hidden="true"></div>
+  <main class="card" id="proposal">
+    <div class="top-heart" aria-hidden="true">💗</div>
+    <p class="eyebrow">Mere dil ki ek chhoti si baat… 💌</p>
+    <h1><span class="name">Ashmira Jiiii 💗</span><br>Will You Be My<br>Girlfriend? 🥹💕</h1>
+    <p class="message">Babyy, bas ek baar bolo naa that you want to be mine… 👉👈💗<br><br>Jab se aapse baat hui hai na, tab se main aapke peeche pagal sa ho gaya hoon… 🥹💗<br>
+Sote hue, uthte hue — har waqt bas aapki yaad aati hai. Aap mere liye sab kuch ho, meri jaan. ✨<br><br>
+Main nahi chahta ki itni pyaari si ladki kisi aur ki ho jaaye… dil chahta hai ki aap hamesha meri humsafar banein. Aap mere liye bohot maayne rakhti hain. 💌</p>
+    <div class="buttons" id="buttonArea">
+      <button class="yes" id="yesBtn" type="button">Haan, jaan 💖</button>
+      <button class="no" id="noBtn" type="button" aria-label="Nahi">Nahi 🙈</button>
+    </div>
+    <p class="hint" id="hint" aria-live="polite">Babyy, bas ek baar bol do naa… 🥹💗</p>
+    <p class="signature">Sirf aapke liye, meri jaan… dil se 💗</p>
+  </main>
+
+  <section class="celebration" id="celebration" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="celebrationTitle">
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+    <div class="celebrate-content">
+      <div class="big-heart" aria-hidden="true">💖</div>
+      <h2 id="celebrationTitle">Meri Jaan! 💖</h2>
+      <p>Aapne toh mera dil khushi se bhar diya, Ashmira! 🥹💕<br>
+      Allah kare humari yeh mohabbat hamesha yunhi khoobsurat rahe…<br>
+      Aap meri jaan hain, babyyyy. Aap mere liye bohot khaas hain. 🌙✨</p>
+      <button class="again" id="againBtn" type="button">Phir se dekhein 💞</button>
+    </div>
+  </section>
+  <script>
+    const heartsLayer = document.getElementById('floatingHearts');
+    const noBtn = document.getElementById('noBtn');
+    const buttonArea = document.getElementById('buttonArea');
+    const hint = document.getElementById('hint');
+    const celebration = document.getElementById('celebration');
+    const confetti = document.getElementById('confetti');
+    let noMoves = 0;
+
+    // Soft floating hearts in the background.
+    const heartSymbols = ['♥','♡','💕','💗','❤'];
+    for (let i = 0; i < 24; i++) {
+      const heart = document.createElement('span');
+      heart.className = 'float-heart';
+      heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (14 + Math.random() * 27) + 'px';
+      heart.style.animationDuration = (9 + Math.random() * 13) + 's';
+      heart.style.animationDelay = (-Math.random() * 20) + 's';
+      heartsLayer.appendChild(heart);
+    }
+
+    function moveNoButton() {
+      noMoves++;
+      // First move it into a viewport-positioned layer, then keep it within safe margins.
+      noBtn.style.position = 'fixed';
+      noBtn.style.zIndex = '20';
+      noBtn.style.margin = '0';
+      const pad = 14;
+      const rect = noBtn.getBoundingClientRect();
+      const maxX = Math.max(pad, window.innerWidth - rect.width - pad);
+      const maxY = Math.max(pad, window.innerHeight - rect.height - pad);
+      let x = pad + Math.random() * Math.max(0, maxX - pad);
+      let y = pad + Math.random() * Math.max(0, maxY - pad);
+      // Avoid landing directly on the YES button or proposal heading where possible.
+      const yesRect = document.getElementById('yesBtn').getBoundingClientRect();
+      for (let i = 0; i < 12; i++) {
+        const overlapsYes = x < yesRect.right + 18 && x + rect.width > yesRect.left - 18 &&
+                            y < yesRect.bottom + 18 && y + rect.height > yesRect.top - 18;
+        if (!overlapsYes) break;
+        x = pad + Math.random() * Math.max(0, maxX - pad);
+        y = pad + Math.random() * Math.max(0, maxY - pad);
+      }
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+      const messages = ['Hehe, pakad ke dikhao! 🙈','Sochiye na, Ashmira jaan 🥺','Haan wala button kitna pyaara hai 💗','Arey, phir se koshish karein! 😜','Mera dil toh Haan keh raha hai 💘'];
+      hint.textContent = messages[(noMoves - 1) % messages.length];
+    }
+    noBtn.addEventListener('pointerenter', moveNoButton);
+    noBtn.addEventListener('click', (event) => { event.preventDefault(); moveNoButton(); });
+    noBtn.addEventListener('touchstart', (event) => { event.preventDefault(); moveNoButton(); }, {passive:false});
+    noBtn.addEventListener('focus', moveNoButton);
+    window.addEventListener('resize', () => {
+      if (noBtn.style.position === 'fixed') {
+        const rect = noBtn.getBoundingClientRect();
+        noBtn.style.left = Math.min(parseFloat(noBtn.style.left) || 14, window.innerWidth - rect.width - 14) + 'px';
+        noBtn.style.top = Math.min(parseFloat(noBtn.style.top) || 14, window.innerHeight - rect.height - 14) + 'px';
+      }
+    });
+
+    function makeCelebrationHearts() {
+      confetti.innerHTML = '';
+      for (let i = 0; i < 75; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'rain-heart';
+        heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (16 + Math.random() * 30) + 'px';
+        heart.style.animationDuration = (3.2 + Math.random() * 4.8) + 's';
+        heart.style.animationDelay = (Math.random() * 3) + 's';
+        heart.style.setProperty('--drift', (Math.random() * 180 - 90) + 'px');
+        confetti.appendChild(heart);
+      }
+      for (let i = 0; i < 22; i++) {
+        const sparkle = document.createElement('span');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 2 + 's';
+        confetti.appendChild(sparkle);
+      }
+    }
+
+    document.getElementById('yesBtn').addEventListener('click', () => {
+      makeCelebrationHearts();
+      celebration.classList.add('show');
+      celebration.setAttribute('aria-hidden', 'false');
+      document.getElementById('againBtn').focus({preventScroll:true});
+    });
+    document.getElementById('againBtn').addEventListener('click', () => {
+      celebration.classList.remove('show');
+      celebration.setAttribute('aria-hidden', 'true');
+      noMoves = 0;
+      noBtn.removeAttribute('style');
+      hint.textContent = 'Babyy, bas ek baar bol do naa… 🥹💗';
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && celebration.classList.contains('show')) {
+        celebration.classList.remove('show');
+        celebration.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
